@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{FABCC18D-6B2D-4450-8DD4-47BA0C9C7391}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="TuranSatis.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Users\kobijet\Desktop\sj\sj\satıs\satıss.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TuranSatis">
+        <MSBuild Projects="TuranSatis.dproj"/>
+    </Target>
+    <Target Name="TuranSatis:Clean">
+        <MSBuild Projects="TuranSatis.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TuranSatis:Make">
+        <MSBuild Projects="TuranSatis.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="satıss">
+        <MSBuild Projects="C:\Users\kobijet\Desktop\sj\sj\satıs\satıss.dproj"/>
+    </Target>
+    <Target Name="satıss:Clean">
+        <MSBuild Projects="C:\Users\kobijet\Desktop\sj\sj\satıs\satıss.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="satıss:Make">
+        <MSBuild Projects="C:\Users\kobijet\Desktop\sj\sj\satıs\satıss.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TuranSatis;satıss"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TuranSatis:Clean;satıss:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TuranSatis:Make;satıss:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
